@@ -1,10 +1,28 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Grid, Card, CardContent, Divider, CardHeader, Typography, ListItemAvatar, Avatar, ListItem, ListItemText } from '@material-ui/core';
+import { Language, Star, Phone, Fastfood, AttachMoney } from '@material-ui/icons'
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    minHeight: 500,
+  },
+  card: {
+    margin: 11,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between"
+  },
+
+
+}))
 
 export const Stores = () => {
-  const [stores, setStores] = useState([])
+  // const [stores, setStores] = useState([])
   const [pieData, setPie] = useState({ store: null, pie: null })
   const [isLoading, setLoading] = useState(true);
+  const classes = useStyles();
 
   useEffect(() => {
     const grabData = async () => {
@@ -44,22 +62,65 @@ export const Stores = () => {
   }
 
   return (
-    <div>
-      {
-        pieData.store.map(store =>
-          <div>
-            <h1>{store.storename} </h1>
-            <h2>Address: {store.address}</h2>
-            <h2>Price: ${store.price}</h2>
-            <h2>Qty: {store.quantity}</h2>
-            <h2>Store Rating: {store.storerating}</h2>
-            <h2>Phone Number: </h2>
-            <h2>Pie: {pieLookUp(store.pieId)}</h2>
-            <h1>------</h1>
-          </div>
-        )
-      }
-    </div>
+    <>
+      <Typography variant='h4' align='center'>Welcome TyroHealth! Here are some pies you can choose from today </Typography>
+      <Divider />
+      <Grid container alignItems="center" justifyContent="center" >
+        {
+          pieData.store.map(store =>
+            <Grid item xs='3' className={classes.card}>
+              <Card variant='outlined' className={classes.root}>
+                <CardContent>
+                  <CardHeader
+                    title={store.storename}
+                    subheader={store.address}
+                  />
+
+                  <Divider />
+                  <Typography variant='h6'>{pieLookUp(store.pieId)}</Typography>
+                  <ListItem>
+                    <ListItemAvatar>
+                      <Avatar ><AttachMoney fontSize='small' /></Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary={store.price} />
+                  </ListItem>
+
+                  <ListItem>
+                    <ListItemAvatar>
+                      <Avatar ><Fastfood fontSize='small' /></Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary={store.quantity} />
+                  </ListItem>
+
+                  <ListItem>
+                    <ListItemAvatar>
+                      <Avatar ><Star fontSize='small' /></Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary={store.storerating} />
+                  </ListItem>
+
+                  <ListItem>
+                    <ListItemAvatar>
+                      <Avatar ><Phone fontSize='small' /></Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary={store.phonenumber} />
+                  </ListItem>
+
+                  <ListItem>
+                    <ListItemAvatar>
+                      <Avatar ><Language fontSize='small' /></Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary={store.website} />
+                  </ListItem>
+
+
+                </CardContent>
+              </Card>
+            </Grid>
+          )
+        }
+      </Grid>
+    </>
   )
 }
 
