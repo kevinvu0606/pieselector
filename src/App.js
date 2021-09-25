@@ -1,10 +1,11 @@
-
+import { GlobalProvider } from './context/GlobalState'
+import { Stores } from './components/Store'
 
 function App() {
   return (
-    <div className="App">
-      hi
-    </div>
+    <GlobalProvider >
+      <Stores />
+    </GlobalProvider>
   );
 }
 
