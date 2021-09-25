@@ -9,7 +9,7 @@ export const Stores = () => {
   useEffect(() => {
     const grabData = async () => {
       const storeInfo = await axios(
-        'https://superpie-api.herokuapp.com/stores/'
+        'https://superpie-api.herokuapp.com/stores?_limit=5'
       );
       const pieInfo = await axios(
         'https://superpie-api.herokuapp.com/pies/'
@@ -48,7 +48,6 @@ export const Stores = () => {
       {
         pieData.store.map(store =>
           <div>
-            <h2>{store.storename}</h2>
             <h1>{store.storename} </h1>
             <h2>Address: {store.address}</h2>
             <h2>Price: ${store.price}</h2>
@@ -60,7 +59,6 @@ export const Stores = () => {
           </div>
         )
       }
-      {console.log(pieData.pie.length)}
     </div>
   )
 }
