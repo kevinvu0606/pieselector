@@ -14,6 +14,26 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "space-between"
   },
+  websiteAvatar: {
+    color: '#fff',
+    backgroundColor: '#222'
+  },
+  phoneAvatar: {
+    color: '#fff',
+    backgroundColor: '#00FF00'
+  },
+  ratingAvatar: {
+    color: '#fff',
+    backgroundColor: '#222'
+  },
+  quantityAvatar: {
+    color: '#fff',
+    backgroundColor: '#222'
+  },
+  priceAvatar: {
+    color: '#fff',
+    backgroundColor: '#00FF00'
+  },
 
 
 }))
@@ -80,35 +100,35 @@ export const Stores = () => {
                   <Typography variant='h6'>{pieLookUp(store.pieId)}</Typography>
                   <ListItem>
                     <ListItemAvatar>
-                      <Avatar ><AttachMoney fontSize='small' /></Avatar>
+                      <Avatar className={classes.priceAvatar}><AttachMoney fontSize='small' /></Avatar>
                     </ListItemAvatar>
                     <ListItemText primary={store.price} />
                   </ListItem>
 
                   <ListItem>
                     <ListItemAvatar>
-                      <Avatar ><Fastfood fontSize='small' /></Avatar>
+                      <Avatar className={classes.quantityAvatar}><Fastfood fontSize='small' /></Avatar>
                     </ListItemAvatar>
                     <ListItemText primary={store.quantity} />
                   </ListItem>
 
                   <ListItem>
                     <ListItemAvatar>
-                      <Avatar ><Star fontSize='small' /></Avatar>
+                      <Avatar className={classes.ratingAvatar} ><Star fontSize='small' /></Avatar>
                     </ListItemAvatar>
                     <ListItemText primary={store.storerating} />
                   </ListItem>
 
                   <ListItem>
                     <ListItemAvatar>
-                      <Avatar ><Phone fontSize='small' /></Avatar>
+                      <Avatar className={classes.phoneAvatar}><Phone fontSize='small' /></Avatar>
                     </ListItemAvatar>
                     <ListItemText primary={store.phonenumber} />
                   </ListItem>
 
                   <ListItem>
                     <ListItemAvatar>
-                      <Avatar ><Language fontSize='small' /></Avatar>
+                      <Avatar className={classes.websiteAvatar} ><Language fontSize='small' /></Avatar>
                     </ListItemAvatar>
                     <ListItemText primary={store.website} />
                   </ListItem>
