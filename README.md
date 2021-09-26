@@ -5,7 +5,7 @@ This app sends a HTTP request to a JSON server api ( https://superpie-api.heroku
 Simply load the page and see the details of the top 5 pie shops
 
 ## ⚡ Try it out
-- [Try Pie Selector Here:](https://pie_selector_kevin.surge.sh/)
+- [Try Pie Selector Here:] (https://pie_selector_kevin.surge.sh/)
 
 ## 🛠️ Technologies used
 - React
