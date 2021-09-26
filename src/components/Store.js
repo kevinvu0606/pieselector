@@ -20,19 +20,19 @@ const useStyles = makeStyles((theme) => ({
   },
   phoneAvatar: {
     color: '#fff',
-    backgroundColor: '#00FF00'
+    backgroundColor: '#006400'
   },
   ratingAvatar: {
     color: '#fff',
-    backgroundColor: '#222'
+    backgroundColor: '#FFD700'
   },
   quantityAvatar: {
     color: '#fff',
-    backgroundColor: '#222'
+    backgroundColor: '#008B8B'
   },
   priceAvatar: {
     color: '#fff',
-    backgroundColor: '#00FF00'
+    backgroundColor: '#800000'
   },
 
 
@@ -81,6 +81,8 @@ export const Stores = () => {
     return <div className="App">Loading...</div>;
   }
 
+
+
   return (
     <>
       <Typography variant='h4' align='center'>Welcome TyroHealth! Here are some pies you can choose from today </Typography>
@@ -127,12 +129,15 @@ export const Stores = () => {
                   </ListItem>
 
                   <ListItem>
-                    <ListItemAvatar>
-                      <Avatar className={classes.websiteAvatar} ><Language fontSize='small' /></Avatar>
-                    </ListItemAvatar>
-                    <ListItemText primary={store.website} />
+                    <a href={store.website} target="_blank">
+                      <ListItemAvatar>
+                        <Avatar className={classes.websiteAvatar} ><Language fontSize='small' /></Avatar>
+                      </ListItemAvatar>
+                    </a>
+                    <a href={store.website} target="_blank">
+                      <ListItemText primary={store.website} />
+                    </a>
                   </ListItem>
-
 
                 </CardContent>
               </Card>
